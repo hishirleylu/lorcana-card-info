@@ -15,6 +15,8 @@ function GetStaples(page) {
 
 		var lastPopularity = 100
 
+    $("#staples").append("name,version,popularity");
+
 		rows.each((i, rowHtml) => {
 			const cards = $(rowHtml).find('div.col-xl-3');
 			
@@ -36,6 +38,7 @@ function GetStaples(page) {
 
 				if (popularity > 0) {
 					Staples[cardname] = ({'name': name, 'title': title, 'popularity': popularity})
+					$("#staples").append(`<div>${name},${title},${popularity}</div>`);
 				}
 				lastPopularity = popularity
 			})
@@ -86,12 +89,10 @@ function GetAllCardsForSet(Set) {
       }
     })
 
-    $("#staples").append(JSON.stringify(Cards));
-
   }, 'json')
 }
 
-// FETCH INFO
+// INITIAL CALL
 
 GetStaples(1)
 
