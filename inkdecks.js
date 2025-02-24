@@ -15,8 +15,6 @@ function GetStaples(page) {
 
 		var lastPopularity = 100
 
-    $("#staples").append("name,version,popularity");
-
 		rows.each((i, rowHtml) => {
 			const cards = $(rowHtml).find('div.col-xl-3');
 			
@@ -94,5 +92,7 @@ function GetAllCardsForSet(Set) {
 
 // INITIAL CALL
 
+
+$("#staples").append("name,version,popularity");
 GetStaples(1)
 
